@@ -21,8 +21,8 @@
                 padding-top: 56px; /* Sesuaikan nilai ini dengan tinggi navbar */
             }
             .navbar-expand {
-                background-color: #FFF212; 
-                color: black;
+                background-color: #FF0009; 
+                color: white;
             }
             .navbar-expand .btn-outline-dark {
                 color: #033800;
@@ -47,7 +47,7 @@
         @yield('content')
         
         <!-- Footer-->
-        <footer class="py-5 bg-dark" style="background-color: #FFF212 !important;">
+        <footer class="py-5 bg-dark" style="background-color: #FF0009 !important;">
             <div class="container"><p class="m-0 text-center">Copyright &copy; Star Steak 2024</p></div>
         </footer>
         <!-- Bootstrap core JS-->

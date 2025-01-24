@@ -19,7 +19,12 @@
     }
 </style>
 
-
+<div class="d-flex flex-wrap justify-content-center" style="gap: 1rem;">
+    <div class="card" style="min-width: 150px;">
+        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Favorit</div>
+        <img class="card-img-top" src="{{ url('/starsteakmenu/public/img/menu_fav.jpg') }}" alt="name" />
+    </div>
+</div>
 
 <section class="py-4">
     <div class="container px-4 px-lg-5 mt-0">
@@ -67,7 +72,7 @@
                                     <div class="bi-star-fill"></div>
                                 </div>
                                 <!-- Product price-->
-                                Rp {{ $item['harga'] }}
+                                @currency($item['harga'])
                             </div>
                         </div>
                         <!-- Product actions-->
