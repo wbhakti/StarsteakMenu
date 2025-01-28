@@ -104,13 +104,6 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <a class="btn btn-primary btn-add-to-cart" href="javascript:void(0)" 
-                                    data-id="{{ $item['id'] }}" 
-                                    data-name="{{ $item['nama'] }}" 
-                                    data-price="{{ $item['harga'] }}"
-                                    data-img="{{ $item['image_url'] }}">
-                                    Add to Cart
-                                </a>
                             </div>
                         </div>
                     </div>
