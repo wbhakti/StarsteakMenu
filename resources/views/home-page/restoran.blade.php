@@ -19,11 +19,22 @@
     }
 </style>
 
-<div class="d-flex flex-wrap justify-content-center" style="gap: 1rem;">
-    <div class="card" style="min-width: 150px;">
-        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Favorit</div>
-        <img class="card-img-top" src="{{ url('/starsteakmenu/public/img/menu_fav.jpg') }}" alt="name" />
-    </div>
+<div id="carouselExampleCaptions" class="carousel slide my-3 custom-border-carousel" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($data as $index => $item)
+                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                    <img src="{{ asset('img/' . $item) }}" class="img-fluid d-block w-100" alt="" style="object-fit: cover;">
+                </div>
+            @endforeach
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
 </div>
 
 <section class="py-4">

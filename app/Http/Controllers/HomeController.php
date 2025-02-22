@@ -14,6 +14,8 @@ class HomeController extends Controller
             // // Hit API Produk
             $client = new Client();
 
+            $listSlider = array("menu_fav.jpg", "menu_fav.jpg", "menu_fav.jpg");
+
             try {
                 // Hit API Kategori
                 $responseKategori = $client->request('GET', 'https://api.klajek.com/api/category/1');
@@ -49,6 +51,7 @@ class HomeController extends Controller
             return view('home-page/restoran', [
                 'kategori' => $dataKategori, 
                 'produk' => $dataproduk,
+                'data' => $listSlider,
             ]);
     }
 
