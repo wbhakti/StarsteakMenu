@@ -39,7 +39,7 @@
         <!-- <nav class="navbar custom-navbar fixed-top"> -->
         <nav class="sb-topnav navbar navbar-expand fixed-top">
             <div class="container px-4 px-lg-5">
-                <h4 class="fw-bolder">Star Steak Menu</h4>
+                <h4 class="fw-bolder" style="margin-bottom:0">Star Steak Menu</h4>
             </div>
         </nav>
         

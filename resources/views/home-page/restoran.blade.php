@@ -23,16 +23,16 @@
         <div class="carousel-inner">
             @foreach ($data as $index => $item)
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                    <img src="{{ asset('img/' . $item) }}" class="img-fluid d-block w-100" alt="" style="object-fit: cover;">
+                    <img src="{{ url('/StarsteakMenu/public/img/' . $item) }}" class="img-fluid d-block w-100" alt="" style="object-fit: cover;">
                 </div>
             @endforeach
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon" style="background-color: #FF0009 !important;" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon" style="background-color: #FF0009 !important;" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
 </div>
