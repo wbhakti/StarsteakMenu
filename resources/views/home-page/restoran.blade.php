@@ -39,7 +39,6 @@
 
 <section class="py-4">
     <div class="container px-4 px-lg-5 mt-0">
-
         <!-- Pilihan Kategori -->
         <div class="text-center mb-4">
             <h4 class="fw-bolder">Kategori Menu</h4>
@@ -100,30 +99,29 @@
                         </div> -->
                     </div>
                 </div>
-
-                <!-- Modal -->
-                <div class="modal fade" id="modal{{ $item['id'] }}" tabindex="-1" aria-labelledby="modalLabel{{ $item['id'] }}" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalLabel{{ $item['id'] }}">{{ $item['nama'] }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p><strong>Harga:</strong> Rp {{ $item['harga'] }}</p>
-                                <img src="{{ $item['image_url'] }}" alt="{{ $item['nama'] }}" class="img-fluid" onerror="this.onerror=null;this.src='{{ asset('img/default-img.jpeg') }}';"/>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
             @endif
         </div>
 
-        
+        <!-- Modal -->
+        @if(!empty($promo->get_title()))
+        <div class="modal fade" id="promoModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel{{ $promo->get_title() }}">{{ $promo->get_title() }}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ $promo->get_image() }}" alt="{{ $promo->get_image() }}" class="img-fluid" onerror="this.onerror=null;this.src='{{ asset('img/default-img.jpeg') }}';"/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 </section>
 
@@ -137,4 +135,14 @@
             }
         });
     });
+</script>
+
+<script type="text/javascript">
+    window.onload = () => {
+        // if ($promo->get_title() = "") {
+            
+        // }
+        const myModal = new bootstrap.Modal('#promoModal');
+        myModal.show();
+    }
 </script>

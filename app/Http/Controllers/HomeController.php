@@ -6,6 +6,27 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
+class PopupPromo {
+    // Properties
+    public $title;
+    public $image;
+  
+    // Methods
+    function set_title($title) {
+      $this->title = $title;
+    }
+    function get_title() {
+      return $this->title;
+    }
+
+    function set_image($image) {
+        $this->image = $image;
+      }
+      function get_image() {
+        return $this->image;
+      }
+}
+
 class HomeController extends Controller
 {
 
@@ -15,6 +36,9 @@ class HomeController extends Controller
             $client = new Client();
 
             $listSlider = array("menu_fav.jpg", "menu_fav.jpg", "menu_fav.jpg");
+            $promo = new PopupPromo();
+            $promo->title = "Menu Baru nih";
+            $promo->image = "https://api.klajek.com/KlajekApi/public/images/menus/1/1_90001.jpeg";
 
             try {
                 // Hit API Kategori
@@ -52,6 +76,7 @@ class HomeController extends Controller
                 'kategori' => $dataKategori, 
                 'produk' => $dataproduk,
                 'data' => $listSlider,
+                'promo' => $promo,
             ]);
     }
 
