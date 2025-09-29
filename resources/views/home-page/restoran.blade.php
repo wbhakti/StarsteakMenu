@@ -63,40 +63,39 @@
             @if(!empty($produk['data']))
                 @foreach ($produk['data'] as $item)
                 <div class="col mb-5">
-                    <div class="card h-100">
+                    <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modal{{ $item['id'] }}">
                         <!-- Sale badge-->
                         <!-- <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Baru</div> -->
                         <!-- Product image-->
-                        <img class="card-img-top" src="{{ $item['image_url'] }}" alt="..." onerror="this.onerror=null;this.src='{{ asset('img/default-img.jpeg') }}';" style="width: 100%; height: 150px; object-fit: cover;"/>
+                        <img class="card-img-top" src="{{ $item['image_url'] }}" alt="..." onerror="this.onerror=null;this.src='{{ asset('img/default-img.jpeg') }}';" style="width: 100%; height: 175px; object-fit: cover;"/>
                         <!-- Product details-->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name with modal trigger-->
                                 <h5 class="fw-bolder" style="font-size: 14px;" data-bs-toggle="modal" data-bs-target="#modal{{ $item['id'] }}">{{ $item['nama'] }}</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
                                 <!-- Product price-->
                                 @currency($item['harga'])
                             </div>
                         </div>
-                        <!-- Product actions-->
-                        <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                <a class="btn btn-outline-dark mt-auto btn-add-to-cart" href="javascript:void(0)" 
-                                data-id="{{ $item['id'] }}" 
-                                data-name="{{ $item['nama'] }}" 
-                                data-price="{{ $item['harga'] }}"
-                                data-img="{{ $item['image_url'] }}">
-                                Add to cart
-                                </a>
+                    </div>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="modal{{ $item['id'] }}" tabindex="-1" aria-labelledby="modalLabel{{ $item['id'] }}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalLabel{{ $item['id'] }}">{{ $item['nama'] }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                        </div> -->
+                            <div class="modal-body">
+                                <p><strong>Harga:</strong> Rp {{ $item['harga'] }}</p>
+                                <img src="{{ $item['image_url'] }}" alt="{{ $item['nama'] }}" class="img-fluid" onerror="this.onerror=null;this.src='{{ asset('img/default-img.jpeg') }}';"/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @endforeach
