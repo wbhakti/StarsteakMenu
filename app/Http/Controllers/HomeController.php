@@ -35,14 +35,14 @@ class HomeController extends Controller
             // // Hit API Produk
             $client = new Client();
 
-            $listSlider = array("menu_fav.jpg", "menu_fav.jpg", "menu_fav.jpg");
+            $listSlider = array("menu_fav1.jpeg", "menu_fav2.jpeg", "menu_fav3.jpeg","menu_fav4.jpeg");
             $promo = new PopupPromo();
             $promo->title = "Menu Baru nih";
-            $promo->image = "https://api.klajek.com/KlajekApi/public/images/menus/1/1_90001.jpeg";
+            $promo->image = "https://api.klajek.com/KlajekApi/public/images/menus/6/6_90056.jpg";
 
             try {
                 // Hit API Kategori
-                $responseKategori = $client->request('GET', 'https://api.klajek.com/api/category/1');
+                $responseKategori = $client->request('GET', 'https://api.klajek.com/api/category/6');
                 $dataKategori = json_decode($responseKategori->getBody()->getContents(), true);
             } catch (\Exception $e) {
                 Log::error('Gagal memuat data kategori: ' . $e->getMessage());
@@ -50,7 +50,7 @@ class HomeController extends Controller
     
             try {
                 // Hit API Produk
-                $url = 'https://api.klajek.com/api/menus/1';
+                $url = 'https://api.klajek.com/api/menus/6';
                 $responseProduk = $client->request('GET', $url);
                 $dataproduk = json_decode($responseProduk->getBody()->getContents(), true);
     
